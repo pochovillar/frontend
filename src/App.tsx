@@ -11,7 +11,18 @@ interface CollegeTeams {
   state: string;
 }
 
-// This is a COMPONENT
+//function
+function Welcome() {
+  return (
+    <div>
+      <h1>Welcome!</h1>
+      <br />
+      <h2>Find information about college basketball teams!</h2>
+    </div>
+  );
+}
+
+// This might be a component
 class Team extends React.Component<CollegeTeams> {
   render() {
     const oneTeam = this.props;
@@ -39,26 +50,21 @@ class Team extends React.Component<CollegeTeams> {
   }
 }
 
+// comment
 function TeamList() {
-  return <div></div>;
+  return (
+    <div>
+      {CollegeBasketballTeams.teams.map((oneTeam) => (
+        <Team {...oneTeam} />
+      ))}
+    </div>
+  );
 }
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Welcome />
+      <TeamList />
     </div>
   );
 }
